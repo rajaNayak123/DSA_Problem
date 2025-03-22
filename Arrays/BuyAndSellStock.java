@@ -1,3 +1,4 @@
+package Arrays;
 public class BuyAndSellStock {
     public static int bestTimeBuyStockAndSell(int arr[], int n) {
         int mini = arr[0];

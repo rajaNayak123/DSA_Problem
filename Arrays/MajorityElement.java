@@ -1,3 +1,4 @@
+package Arrays;
 public class MajorityElement {
     // Optimal
     public static int findMajorityEle(int arr[], int n) {
