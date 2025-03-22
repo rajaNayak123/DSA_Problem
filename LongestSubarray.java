@@ -1,30 +1,26 @@
+/**
+ * Longest subarray with sum k
+ */
 public class LongestSubarray {
-    public static int findLongestSubarray(int arr[], int k) {
-        int left = 0;
-        int right = 0;
-        int maxLen = 0;
-        int sum = arr[0];
-
-        while (right < arr.length) {
-            while (sum > k) {
-                sum -= arr[left];
-                left++;
-            }
-            if (sum == k) {
-                maxLen = Math.max(maxLen, right - left + 1);
-            }
-            right++;
-            if (right < arr.length) {
-                sum += arr[right];
+    public static int subarraySum(int[] arr, int k) {
+        int len = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int sum = 0;
+                for (int l = i; l < j; k++) {
+                    sum += arr[l];
+                }
+                if (sum == k) {
+                    len = Math.max(len, j - i + 1);
+                }
             }
         }
-        return maxLen;
+        return len;
     }
 
     public static void main(String[] args) {
-        int arr[] = { 2,3,5,1,9 };
-        int k = 10;
-        int len = findLongestSubarray(arr, k);
-        System.out.println(len);
+        int arr[] = { 1, 2, 3, 1, 1, 1, 1, 4, 2, 3 };
+        int k = 3;
+        System.out.println(subarraySum(arr, k));
     }
 }
